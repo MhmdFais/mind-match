@@ -13,3 +13,8 @@
     font-family: solidFont;
     src: url(./assets/font/Pokemon\ Solid.ttf);
 }
+
+body{
+    background-image: url(./assets/photo/bac.png);
+    /* background-size: cover; */
+}
