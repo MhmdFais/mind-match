@@ -2,22 +2,29 @@ import { useState, useEffect } from 'react';
 import Header from '../Components/Header';
 import '../styles/Home.css';
 
+// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png
+
 function Home() {
     const [loading, setLoading] = useState(true);
-    const [pokemonData, setPokemonData] = useState(null);
+    const [pokemonData, setPokemonData] = useState([]);
 
     useEffect(() => {
         fetch('https://pokeapi.co/api/v2/pokemon')
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                setPokemonData(data); 
+                const pokenos = data.results;
+                setPokemonData(pokenos); 
                 setLoading(false);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
                 setLoading(false); 
             });
+
+        return () => {
+            console.log('Cleanup');
+        };
+
     }, []);
 
     return (
