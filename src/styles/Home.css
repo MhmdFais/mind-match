@@ -1,0 +1,12 @@
+.contentDiv{
+    height: 100vh;
+    padding: 2vh 12vw;
+}
+
+.loadText{
+    font-size: calmp(5rem, 8vw, 10rem);
+    font-family: solidFont;
+    color: #fff;
+    text-align: center;
+    margin-top: 10vh;
+}
