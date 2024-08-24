@@ -1,0 +1,55 @@
+:root{
+    --underline-color: #f35e74;
+    --font-color: #ecfeff;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 12vw;
+  background-color: inherit;
+}
+
+.scoresDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.currentScoreDiv,
+.highScoreDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameNameDiv p{
+    font-family: solidFont;
+    font-size: clamp(2.5rem, 4vw, 3rem);
+    color: var(--font-color);
+}
+
+.currentScoreDiv p, 
+.highScoreDiv p{
+    color: var(--font-color);
+}
+
+.text{
+    border: 1px solid var(--underline-color);
+    padding: 0.5rem 1rem;
+    font-family: hollowFont;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+}
+
+.score{
+    border: 1px solid var(--underline-color);
+    padding: 0.5rem 1rem;
+    font-family: solidFont;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    background-color: var(--underline-color);
+}
