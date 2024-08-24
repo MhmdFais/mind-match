@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import '../styles/WelcomeScreen.css';
 
 function WelcomeScreen(){
 
     const [startButton , setStartButton] = useState(false);
+    const navigate = useNavigate();
 
     const startGame = () => {
         setStartButton(true);
+        navigate('/home');
     }
 
     return(
