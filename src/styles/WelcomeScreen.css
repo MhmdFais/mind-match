@@ -1,0 +1,45 @@
+:root{
+    --font-color: #ecfeff;
+    --btn-color: #f35e74;
+    --btn-hover-color: #ff6f61;
+}
+
+.welcomeDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.welcomeDiv p{
+    color: var(--font-color);
+}
+
+.welcomeTextDiv p{
+    font-family: solidFont;
+    font-size: clamp(3rem, 7.5vw, 5rem);
+}
+
+.secondartWelcomeText p{
+    font-family: hollowFont;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.buttonDiv{
+    margin-top: 4rem;
+}
+
+.buttonDiv button{
+    font-family: hollowFont;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    padding: 1rem 2rem;
+    border: 1px solid var(--btn-hover-color);
+    border-radius: 5px;
+    /* background-color: #ff6f61; */
+    /* background-color: var(--btn-color); */
+    background-color: inherit;
+    color: var(--font-color);
+    cursor: pointer;
+}

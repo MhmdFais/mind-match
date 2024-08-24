@@ -1,6 +1,12 @@
+import WelcomeScreen from './Pages/WelcomeSceen'
+
 
 function App() {
-  return (<></>)
+  return (
+    <>
+      <WelcomeScreen />
+    </>
+  )
 }
 
 export default App

@@ -6,15 +6,16 @@
 
 @font-face {
     font-family: hollowFont;
-    src: url(./assets/font/Pokemon\ Hollow.ttf);
+    src: url(./assets/font/hollow.ttf);
 }
 
 @font-face {
     font-family: solidFont;
-    src: url(./assets/font/Pokemon\ Solid.ttf);
+    src: url(./assets/font/solid.ttf);
 }
 
 body{
     background-image: url(./assets/photo/bac.png);
     /* background-size: cover; */
+    z-index: -1;
 }
