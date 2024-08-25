@@ -10,7 +10,6 @@ import Card from '../Components/Card'
 // }));
 
 function Home() {
-    const [loading, setLoading] = useState(true);
     const [pokemonData, setPokemonData] = useState([]);
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
@@ -22,12 +21,10 @@ function Home() {
             .then(data => {
                 const pokemons = data.results;
                 setPokemonData(pokemons);
-                setLoading(false);
                 console.log('data got !!!!');
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
-                setLoading(false); 
             });
 
         return () => {
@@ -58,17 +55,11 @@ function Home() {
     return (
         <div className='contentDiv'>
             <Header highScore={highScore} score={score}/>
-            {loading ? (
-                <p className='loadText'>Wait a Minute</p> 
-            ) : (
-                <div className="cardGrid">
-                    {
-                        getTenRandomCards().map((pokemon, index) => {
-                            <Card key={index} pokemon={pokemon} onClick={() => handlePokemonClick(pokemon)} />
-                        })
-                    }
-                </div>
-            )}
+            <div className="cardGrid">
+                {getTenRandomCards().map((pokemon, index) => (
+                    <Card key={index} pokemon={pokemon} onClick={() => handlePokemonClick(pokemon)} />
+                ))}
+            </div>
         </div>
     );
 }
