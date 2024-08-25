@@ -1,20 +1,29 @@
 import { useState, useEffect } from 'react';
 import Header from '../Components/Header';
 import '../styles/Home.css';
+import Card from '../Components/Card'
 
-// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png
+// const pokenos = data.results.map((pokemon, index) => ({
+//     name: pokemon.name,
+//     id: index + 1,
+//     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
+// }));
 
 function Home() {
     const [loading, setLoading] = useState(true);
     const [pokemonData, setPokemonData] = useState([]);
+    const [score, setScore] = useState(0);
+    const [highScore, setHighScore] = useState(0);
+    const [selectedPokemon, setSelectedPokemon] = useState([]);
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon')
+        fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
             .then(response => response.json())
             .then(data => {
-                const pokenos = data.results;
-                setPokemonData(pokenos); 
+                const pokemons = data.results;
+                setPokemonData(pokemons);
                 setLoading(false);
+                console.log('data got !!!!');
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -22,18 +31,43 @@ function Home() {
             });
 
         return () => {
-            console.log('Cleanup');
+            console.log('Component unmounted');
         };
-
     }, []);
+
+    const handlePokemonClick = (pokemon) => {
+        if (selectedPokemon.includes(pokemon.name)){
+            if (score > highScore){
+                setHighScore(score)
+            }
+            setSelectedPokemon([])
+            setScore(0)
+        }
+        else{
+            setSelectedPokemon([...selectedPokemon, pokemon.name])
+            setScore(score+1)
+        }
+    };
+
+    const getTenRandomCards = () => {
+        const shuffledArray = [...pokemonData].sort(() => 0.5 - Math.random())
+        console.log('got random pokemon')
+        return shuffledArray.slice(0, 10)
+    }
 
     return (
         <div className='contentDiv'>
-            <Header />
+            <Header highScore={highScore} score={score}/>
             {loading ? (
                 <p className='loadText'>Wait a Minute</p> 
             ) : (
-                <p>Check console for Pokémon data!</p> 
+                <div className="cardGrid">
+                    {
+                        getTenRandomCards().map((pokemon, index) => {
+                            <Card key={index} pokemon={pokemon} onClick={() => handlePokemonClick(pokemon)} />
+                        })
+                    }
+                </div>
             )}
         </div>
     );
