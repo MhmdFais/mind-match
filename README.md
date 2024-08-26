@@ -10,7 +10,12 @@ Mind Match is Pokemon Card Game is a simple web application where users are pres
 4. Fetch Pokémon images dynamically from the Pokémon API.
 5. Responsive design for various screen sizes.
 
+# Demo
+
+click here to see the demo project - [demo](https://mind-match-omega.vercel.app/)
+
 # Technologies Used
+
 - React: A JavaScript library for building user interfaces.
 - PokeAPI: A RESTful API for Pokémon data.
 - CSS: Styling for the application.

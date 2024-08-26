@@ -4,6 +4,13 @@
     --btn-hover-color: #ff7b93;
 }
 
+.loadText p{
+    font-family: solidFont;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--font-color);
+    text-align: center;
+}
+
 .card {
     display: flex;
     flex-direction: column;

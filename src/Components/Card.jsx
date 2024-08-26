@@ -35,7 +35,9 @@ function Card({pokemon, onClick}){
         <div onClick={onClick}>
             {
                 loading ? (
-                    <p>Wait a Minute</p>
+                    <div className='loadText'>
+                        <p>Wait a Minute</p>
+                    </div>
                 )
                 :
                 (
