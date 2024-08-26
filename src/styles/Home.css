@@ -10,3 +10,10 @@
     text-align: center;
     margin-top: 10vh;
 }
+
+.cardGrid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 5vh;
+}

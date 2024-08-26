@@ -15,7 +15,7 @@ function Card({pokemon, onClick}){
             try{
                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`);
                const data = await response.json();
-               setImageUrl(data.sprites.front_default);
+               setImageUrl(data.sprites.front_shiny);
                setLoading(false)
             }
             catch(error){
@@ -32,16 +32,20 @@ function Card({pokemon, onClick}){
     },[pokemon.name])
 
     return(
-        <div className="card" onClick={onClick}>
+        <div onClick={onClick}>
             {
                 loading ? (
                     <p>Wait a Minute</p>
                 )
                 :
                 (
-                    <div className='card'>
-                        <p>{pokemon.name}</p>
-                        <img src={imageUrl} alt={pokemon.name}></img>
+                    <div className="card">
+                        <div className="imageDiv">
+                            <img className='image' src={imageUrl} alt={pokemon.name}></img>
+                        </div>
+                        <div className="textDiv">
+                            <p className='text'>{pokemon.name}</p>
+                        </div>
                     </div>
                 )
             }
