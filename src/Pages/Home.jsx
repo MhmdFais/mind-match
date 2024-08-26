@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../Components/Header';
 import '../styles/Home.css';
 import Card from '../Components/Card'
+import Footer from '../Components/Footer';
 
 // const pokenos = data.results.map((pokemon, index) => ({
 //     name: pokemon.name,
@@ -60,6 +61,7 @@ function Home() {
                     <Card key={index} pokemon={pokemon} onClick={() => handlePokemonClick(pokemon)} />
                 ))}
             </div>
+            <Footer />
         </div>
     );
 }

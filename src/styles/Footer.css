@@ -1,0 +1,17 @@
+.footerDiv{
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerDiv p{
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    color: #ecfeff;
+    font-family: hollowFont;
+}
+
+.footerDiv a{
+    color: #f35e74;
+    text-decoration: none;
+}
